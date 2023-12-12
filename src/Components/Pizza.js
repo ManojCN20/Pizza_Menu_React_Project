@@ -2,62 +2,31 @@ import React from "react";
 
 import "../index.css";
 
-const pizzaData = [
-  {
-    name: "Focaccia",
-    ingredients: "Bread with italian olive oil and rosemary",
-    price: 6,
-    photoName: "Assets/Images/focaccia.jpg",
-    soldOut: false,
-  },
-  {
-    name: "Pizza Margherita",
-    ingredients: "Tomato and mozarella",
-    price: 10,
-    photoName: "Assets/Images/margherita.jpg",
-    soldOut: false,
-  },
-  {
-    name: "Pizza Spinaci",
-    ingredients: "Tomato, mozarella, spinach, and ricotta cheese",
-    price: 12,
-    photoName: "Assets/Images/spinaci.jpg",
-    soldOut: false,
-  },
-  {
-    name: "Pizza Funghi",
-    ingredients: "Tomato, mozarella, mushrooms, and onion",
-    price: 12,
-    photoName: "Assets/Images/funghi.jpg",
-    soldOut: false,
-  },
-  {
-    name: "Pizza Salamino",
-    ingredients: "Tomato, mozarella, and pepperoni",
-    price: 15,
-    photoName: "Assets/Images/salamino.jpg",
-    soldOut: true,
-  },
-  {
-    name: "Pizza Prosciutto",
-    ingredients: "Tomato, mozarella, ham, aragula, and burrata cheese",
-    price: 18,
-    photoName: "Assets/Images/prosciutto.jpg",
-    soldOut: false,
-  },
-];
+const Pizza = ({ pizzaObj }) => {
+  // if (pizzaObj.soldOut) return null;
 
-const Pizza = (props) => {
-  console.log(props);
   return (
-    <div className="pizza">
-      <img src={props.photoName} alt="spinaci" />
+    // <li className="pizza">
+    //   <img src={props.pizzaObj.photoName} alt="spinaci" />
+    //   <div>
+    //     <h3>{props.pizzaObj.name}</h3>
+    //     <p>{props.pizzaObj.ingredients}</p>
+    //     <span>{props.pizzaObj.price}</span>
+    //   </div>
+    // </li>
+    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
+      <img src={pizzaObj.photoName} alt="spinaci" />
       <div>
-        <h3>{props.name}</h3>
-        <p>{props.ingredient}</p>
-        <span>{props.price}</span>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        {/* {pizzaObj.soldOut ? (
+          <span>SOLD OUT</span>
+        ) : (
+          <span>{pizzaObj.price}</span>
+        )} */}
+        {pizzaObj.soldOut ? "SOLD OUT" : pizzaObj.price}
       </div>
-    </div>
+    </li>
   );
 };
 
